@@ -1,0 +1,65 @@
+<section id="servicios" class="w-full bg-[#0b0f1a] text-white py-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-bold text-center">
+      Nuestros Servicios
+    </h2>
+    <p class="mt-4 text-center text-white/60 max-w-2xl mx-auto">
+      Soluciones integrales para proteger tu hogar, empresa y operación.
+    </p>
+
+    <div class="mt-12 grid gap-8 md:grid-cols-4">
+      {[
+        { title: "Guardias de Seguridad", icon: "🛡️", desc: "Personal capacitado y protocolos.", path: "/guardias/guardias-de-seguridad", featured: false },
+        { title: "Vigilancia Electrónica y CCTV", icon: "📹", desc: "Cámaras, control y evidencia.", path: "/vigilancia-electronica/camaras-de-seguridad", featured: false },
+        { title: "Alarmas Monitoreadas 24/7", icon: "🚨", desc: "Respuesta inmediata y monitoreo.", path: "/vigilancia-electronica/sistema-de-alarma", featured: false },
+        { title: "Outsourcing de Seguridad", icon: "🏢", desc: "Servicios a medida para empresas.", path: "/outsourcing/outsourcing", featured: false },
+      ].map(service => (
+        <div
+          class:list={[
+            "relative rounded-2xl p-8",
+            "bg-white/[0.06] ring-1 ring-white/10",
+            "shadow-[0_20px_60px_-30px_rgba(0,0,0,0.8)]",
+            "transition hover:bg-white/[0.08]",
+            service.featured ? "md:-translate-y-2 bg-white/[0.08] ring-white/20" : ""
+          ]}
+        >
+          {service.featured && (
+            <div class="absolute -top-3 left-6 text-xs px-3 py-1 rounded-full bg-[#5b63ff] text-white font-semibold">
+              Recomendado
+            </div>
+          )}
+
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg font-semibold">{service.title}</h3>
+            <div class="text-2xl opacity-90">{service.icon}</div>
+          </div>
+
+          <p class="mt-4 text-sm text-white/60 leading-relaxed">
+            {service.desc}
+          </p>
+
+          <ul class="mt-6 space-y-3 text-sm text-white/80">
+            <li class="flex items-center gap-2">
+              <span class="text-[#5b63ff]">✓</span> Implementación profesional
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[#5b63ff]">✓</span> Soporte y mantención
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[#5b63ff]">✓</span> Solución escalable
+            </li>
+          </ul>
+
+          <a
+            href={service.path}
+            class="mt-8 inline-flex w-full items-center justify-center rounded-xl
+                   bg-[#5b63ff] hover:bg-[#4f58ff] transition
+                   py-3 text-sm font-semibold text-white"
+          >
+            Ver servicio
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

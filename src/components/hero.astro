@@ -1,0 +1,63 @@
+---
+/*
+  Hero fullscreen corporativo
+  Uso: <HeroFullscreen />
+*/
+---
+
+<section
+  class="relative w-screen h-screen overflow-hidden flex items-center justify-center"
+  aria-label="Hero principal"
+>
+  <!-- FONDO -->
+  <img
+    src="/img/hero-bg.jpg"
+    alt="Centro de monitoreo de seguridad"
+    class="absolute inset-0 w-full h-full object-cover"
+    loading="eager"
+    draggable="false"
+  />
+
+  <!-- OVERLAY OSCURO -->
+  <div class="absolute inset-0 bg-black/60"></div>
+
+  <!-- CONTENIDO -->
+<div
+  class="relative z-10 max-w-5xl mx-auto px-6 text-center text-white
+         -translate-y-12 md:-translate-y-16"
+>
+
+    <h1
+      class="text-3xl md:text-5xl lg:text-6xl font-serif tracking-wide uppercase"
+    >
+      Su seguridad es nuestra<br />
+      responsabilidad
+    </h1>
+
+    <p class="mt-6 text-sm md:text-lg opacity-90">
+      PROTEC CHILE Seguridad & Servicios Desde 1988
+    </p>
+
+    <!-- BOTONES -->
+    <div
+      class="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
+    >
+      <a
+        href="/contacto"
+        class="px-8 py-3 bg-[#243f6b] text-white text-sm font-medium tracking-wide hover:bg-[#1b3053] transition"
+      >
+        CONTÁCTENOS
+      </a>
+
+      <a
+        href="/cotizacion"
+        class="px-8 py-3 bg-lime-400 text-black text-sm font-semibold tracking-wide hover:bg-lime-300 transition"
+      >
+        COTICE SU ALARMA
+      </a>
+    </div>
+  </div>
+
+  <!-- LINEA INFERIOR (opcional, estética corporativa) -->
+  <div class="absolute bottom-0 left-0 w-full h-1 bg-[#243f6b]"></div>
+</section>

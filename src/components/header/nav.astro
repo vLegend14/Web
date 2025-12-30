@@ -1,0 +1,165 @@
+<header class="w-full bg-protec/95 text-white shadow-sm backdrop-blur">
+  <div class="flex items-center justify-between p-4 max-w-7xl mx-auto">
+
+    <!-- LOGO -->
+    <a href="/" aria-label="Ir al inicio" class="inline-flex items-center gap-2">
+      <img
+        src="/img/logo.png"
+        width="385"
+        height="90"
+        alt="PROTEC · CHILE"
+        decoding="async"
+        class="h-10 w-auto md:h-12 brightness-0 invert"
+      />
+    </a>
+
+    <!-- BOTÓN HAMBURGUESA (MÓVIL) -->
+    <button
+      id="menu-btn"
+      class="md:hidden text-white/90 text-3xl leading-none hover:text-white transition"
+      aria-label="Abrir menú"
+      type="button"
+    >
+      ☰
+    </button>
+
+    <!-- NAV DESKTOP -->
+    <nav class="hidden md:block">
+      <ul class="flex items-center gap-2 font-medium text-white/90">
+
+        <!-- NOSOTROS -->
+        <li class="relative group">
+          <a
+            href="/nosotros/protec-chile"
+            class="h-10 px-4 inline-flex items-center gap-1 rounded-md
+                   hover:bg-white/10 hover:text-white transition-colors"
+          >
+            NOSOTROS <span class="text-xs opacity-80">▾</span>
+          </a>
+
+          <ul
+            class="absolute z-50 left-0 top-full mt-2 w-64 rounded-xl
+                   bg-protec text-white shadow-xl ring-1 ring-white/10
+                   opacity-0 invisible translate-y-2
+                   group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
+                   transition-all duration-200"
+          >
+            <li><a class="block px-4 py-2 text-white/90 hover:bg-white/10 hover:text-white transition" href="/nosotros/presentacion-institucional">PRESENTACIÓN INSTITUCIONAL</a></li>
+            <li><a class="block px-4 py-2 text-white/90 hover:bg-white/10 hover:text-white transition" href="/nosotros/reglamento-interno">REGLAMENTO INTERNO</a></li>
+            <li><a class="block px-4 py-2 text-white/90 hover:bg-white/10 hover:text-white transition" href="/nosotros/mision-vision-objetivos">MISIÓN / VISIÓN / OBJETIVOS</a></li>
+            <li><a class="block px-4 py-2 text-white/90 hover:bg-white/10 hover:text-white transition" href="/nosotros/programa-integridad">PROGRAMA INTEGRIDAD</a></li>
+            <li><a class="block px-4 py-2 text-white/90 hover:bg-white/10 hover:text-white transition" href="/nosotros/politica-calidad-eficiencia-energetica">POLÍTICA DE CALIDAD</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a
+            class="h-10 px-4 inline-flex items-center rounded-md hover:bg-white/10 hover:text-white transition-colors"
+            href="/guardias/guardias-de-seguridad"
+          >
+            GUARDIAS
+          </a>
+        </li>
+
+        <!-- VIGILANCIA -->
+        <li class="relative group">
+          <a
+            href="/vigilancia-electronica/"
+            class="h-10 px-4 inline-flex items-center gap-1 rounded-md
+                   hover:bg-white/10 hover:text-white transition-colors"
+          >
+            VIGILANCIA ELECTRÓNICA <span class="text-xs opacity-80">▾</span>
+          </a>
+
+          <ul
+            class="absolute z-50 left-0 top-full mt-2 w-72 rounded-xl
+                   bg-protec text-white shadow-xl ring-1 ring-white/10
+                   opacity-0 invisible translate-y-2
+                   group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
+                   transition-all duration-200"
+          >
+            <li><a class="block px-4 py-2 text-white/90 hover:bg-white/10 hover:text-white transition" href="/vigilancia-electronica/camaras-de-seguridad">CÁMARAS DE SEGURIDAD</a></li>
+            <li><a class="block px-4 py-2 text-white/90 hover:bg-white/10 hover:text-white transition" href="/vigilancia-electronica/sistema-de-alarma">SISTEMA DE ALARMA</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a
+            class="h-10 px-4 inline-flex items-center rounded-md hover:bg-white/10 hover:text-white transition-colors"
+            href="/outsourcing/outsourcing"
+          >
+            OUTSOURCING
+          </a>
+        </li>
+
+        <li>
+          <a
+            class="h-10 px-4 inline-flex items-center rounded-md hover:bg-white/10 hover:text-white transition-colors"
+            href="/contacto/contactenos"
+          >
+            CONTACTO
+          </a>
+        </li>
+
+        <li>
+          <a
+            class="h-10 px-4 inline-flex items-center rounded-md hover:bg-white/10 hover:text-white transition-colors"
+            href="/ley-karin/"
+          >
+            LEY KARIN
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- NAV MÓVIL -->
+  <nav id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-protec">
+    <ul class="flex flex-col p-4 gap-2 font-medium text-white/90">
+
+      <!-- NOSOTROS -->
+      <details class="rounded-lg overflow-hidden">
+        <summary class="list-none flex items-center justify-between px-3 py-3 rounded-md hover:bg-white/10 transition cursor-pointer">
+          <span>NOSOTROS</span>
+          <span class="text-xs opacity-80">▾</span>
+        </summary>
+
+        <ul class="pl-3 pb-2">
+          <li><a class="block px-3 py-2 rounded-md hover:bg-white/10 transition" href="/nosotros/presentacion-institucional">Presentación</a></li>
+          <li><a class="block px-3 py-2 rounded-md hover:bg-white/10 transition" href="/nosotros/reglamento-interno">Reglamento</a></li>
+          <li><a class="block px-3 py-2 rounded-md hover:bg-white/10 transition" href="/nosotros/mision-vision-objetivos">Misión / Visión</a></li>
+          <li><a class="block px-3 py-2 rounded-md hover:bg-white/10 transition" href="/nosotros/programa-integridad">Programa Integridad</a></li>
+          <li><a class="block px-3 py-2 rounded-md hover:bg-white/10 transition" href="/nosotros/politica-calidad-eficiencia-energetica">Política de Calidad</a></li>
+        </ul>
+      </details>
+
+      <a class="px-3 py-3 rounded-md hover:bg-white/10 transition" href="/guardias/guardias-de-seguridad">GUARDIAS</a>
+
+      <!-- VIGILANCIA -->
+      <details class="rounded-lg overflow-hidden">
+        <summary class="list-none flex items-center justify-between px-3 py-3 rounded-md hover:bg-white/10 transition cursor-pointer">
+          <span>VIGILANCIA ELECTRÓNICA</span>
+          <span class="text-xs opacity-80">▾</span>
+        </summary>
+
+        <ul class="pl-3 pb-2">
+          <li><a class="block px-3 py-2 rounded-md hover:bg-white/10 transition" href="/vigilancia-electronica/camaras-de-seguridad">Cámaras</a></li>
+          <li><a class="block px-3 py-2 rounded-md hover:bg-white/10 transition" href="/vigilancia-electronica/sistema-de-alarma">Alarmas</a></li>
+        </ul>
+      </details>
+
+      <a class="px-3 py-3 rounded-md hover:bg-white/10 transition" href="/outsourcing/outsourcing">OUTSOURCING</a>
+      <a class="px-3 py-3 rounded-md hover:bg-white/10 transition" href="/contacto/contactenos">CONTACTO</a>
+      <a class="px-3 py-3 rounded-md hover:bg-white/10 transition" href="/ley-karin/ley-karin">LEY KARIN</a>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+
+  btn?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+  });
+</script>

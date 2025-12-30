@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/hero.astro";
+import Slider from "../components/slider.astro";
+import Footer from "../components/footer.astro";
+import Contact from "../components/contact.astro";
+import Services from "../components/services.astro";
+import WhyUs from "../components/whyUs.astro";
+import ProtecInfo from "../components/protecInfo.astro";
+
+const title = "PROTEC · CHILE";
+const desc = "Seguridad, vigilancia electrónica y outsourcing.";
+---
+
+<Layout title={title} desc={desc}>
+  <main class="space-y-12">
+    <Hero/>
+    <Slider/>
+    <slot />
+    <Services/>
+    <WhyUs/>
+    <ProtecInfo/>
+  </main>
+  <Contact/>
+  <Footer/>
+</Layout>

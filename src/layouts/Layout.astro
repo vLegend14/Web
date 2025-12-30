@@ -1,0 +1,20 @@
+---
+import "../styles/global.css";
+
+import BaseHead from "../components/baseHead.astro";
+import Header from "../components/header/header.astro";
+
+const { title, desc } = Astro.props;
+---
+
+<html lang="es">
+  <head>
+    <BaseHead title={title} desc={desc} />
+  </head>
+  <body class="bg-protec text-slate-900">
+    <Header />
+    <main id="main-content" class="min-h-screen">
+		<slot />
+    </main>
+  </body>
+</html>

@@ -1,0 +1,148 @@
+---
+/* =========================
+   TIPOS
+   ========================= */
+
+interface ContactItem {
+  icon: string;
+  label?: string;
+  value: string;
+  href: string;
+}
+
+interface Props {
+  title?: string;
+  subtitleStrong?: string;
+  paragraphs?: string[];
+  highlight?: string;
+  isoText?: string;
+  privacyNote?: string;
+  contactTitle?: string;
+  contactItems?: ContactItem[];
+  certTitle?: string;
+  certImage?: string;
+  certAlt?: string;
+  certCaption?: string;
+}
+
+/* =========================
+   PROPS + DEFAULTS
+   ========================= */
+
+const {
+  title = "PROTEC CHILE",
+  subtitleStrong = "Sociedad Profesionales de la Seguridad PROTEC CHILE.",
+  paragraphs = [
+    "Empresa fundada el 01 de Septiembre de 1988, por expertos en el ámbito de la Seguridad Privada y Administración de Recursos Humanos, contando entre nuestros clientes a importantes empresas y entidades del País.",
+    "En la actualidad abarcamos toda la gama de Servicios, Recursos Humanos y Equipamiento necesario para atender los requerimientos de la Seguridad y Servicios de Apoyo a las Empresas contratantes.",
+    "Es para nuestra organización una gran satisfacción el poder apoyar a quienes tienen la responsabilidad de la Seguridad Privada, de las empresas e instituciones, a resolver sus problemas en forma eficiente, aplicando la tecnología y los estándares que PROTEC CHILE utiliza en el País, con un staff de especialistas y profesionales dirigiendo y apoyando las operaciones.",
+  ],
+  highlight = "Primera Empresa de Seguridad en CHILE, en Certificar Internacionalmente sus Servicios.",
+  isoText = "ISO 9001",
+  privacyNote = "Resguardo Absoluto de Privacidad y Datos Personales ó Empresariales, de Todos Nuestros Distinguidos Clientes.",
+  contactTitle = "DATOS DE CONTACTO",
+  contactItems = [
+    { icon: "☎️", label: "FONO CONTACTO", value: "600 620 9 620", href: "tel:6006209620" },
+    { icon: "📞", value: "+56 9 5159 4960", href: "tel:+56951594960" },
+    { icon: "✉️", value: "contacto@protec.cl", href: "mailto:contacto@protec.cl" },
+  ],
+  certTitle = "CERTIFICACIÓN INTERNACIONAL",
+  certImage = "/img/certificacion.png",
+  certAlt = "Certificación ISO 9001",
+  certCaption = "",
+} = Astro.props as Props;
+---
+
+<section class="max-w-7xl mx-auto px-4 py-8 bg-white">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <div class="grid lg:grid-cols-3 gap-10 items-start">
+
+      <!-- ===================== -->
+      <!-- COLUMNA IZQUIERDA     -->
+      <!-- ===================== -->
+      <div class="lg:col-span-2">
+        <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">
+          {title}
+        </h2>
+
+        <p class="mt-4 font-semibold text-slate-900">
+          {subtitleStrong}
+        </p>
+
+        <div class="mt-5 space-y-5 text-slate-700 leading-relaxed">
+          {paragraphs.map((p) => (
+            <p>{p}</p>
+          ))}
+        </div>
+
+        <p class="mt-6 font-bold text-slate-900">
+          {highlight}
+        </p>
+
+        <p class="mt-4 font-extrabold text-blue-800">
+          {isoText}
+        </p>
+
+        <p class="mt-10 text-xs text-slate-500">
+          {privacyNote}
+        </p>
+      </div>
+
+      <!-- ===================== -->
+      <!-- COLUMNA DERECHA      -->
+      <!-- ===================== -->
+      <aside class="lg:col-span-1">
+        <div class="rounded-xl border border-slate-200 p-6 shadow-sm">
+
+          <!-- CONTACTO -->
+          <h3 class="text-sm font-extrabold tracking-wide text-slate-900">
+            {contactTitle}
+          </h3>
+
+          <div class="mt-4 space-y-3">
+            {contactItems.map((item) => (
+              <div class="flex items-start gap-3">
+                <span class="mt-0.5">{item.icon}</span>
+                <div class="text-sm">
+                  {item.label && (
+                    <div class="font-semibold text-slate-900">
+                      {item.label}
+                    </div>
+                  )}
+                  <a
+                    href={item.href}
+                    class="text-slate-700 hover:text-blue-800 underline-offset-4 hover:underline"
+                  >
+                    {item.value}
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <hr class="my-6 border-slate-200" />
+
+          <!-- CERTIFICACIÓN -->
+          <h3 class="text-sm font-extrabold tracking-wide text-slate-900">
+            {certTitle}
+          </h3>
+
+          <div class="mt-4 rounded-lg border border-slate-200 bg-slate-50 p-3">
+            <img
+              src={certImage}
+              alt={certAlt}
+              class="w-full h-auto object-contain"
+              loading="lazy"
+              decoding="async"
+            />
+            <p class="mt-2 text-xs text-slate-600 text-center">
+              {certCaption}
+            </p>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>

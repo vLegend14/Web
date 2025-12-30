@@ -1,0 +1,249 @@
+<!-- ================= CARRUSEL ================= -->
+<section class="max-w-7xl mx-auto px-4 py-8 relative z-0 w-full overflow-hidden rounded-xl select-none">
+  <!-- TRACK -->
+  <div
+    id="carousel"
+    class="flex transition-transform duration-700 ease-in-out will-change-transform"
+  >
+  <!-- SLIDE 1 -->
+    <div class="min-w-full relative">
+      <img
+        src="/img/alarmas-slides.jpg"
+        alt="Alarmas"
+        class="w-full h-[300px] md:h-[480px] object-cover"
+        draggable="false"
+      />
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-4">
+        <h1 class="text-2xl md:text-4xl font-semibold tracking-wide">ALARMAS</h1>
+        <p class="mt-3 max-w-2xl text-sm md:text-lg">CONECTADOS A CARABINEROS DE CHILE – ALPHA III</p>
+      </div>
+    </div>
+
+  <!-- SLIDE 2 -->
+    <div class="min-w-full relative">
+      <img
+        src="/img/CCTV-slides.jpg"
+        alt="Video Vigilancia"
+        class="w-full h-[300px] md:h-[480px] object-cover"
+        draggable="false"
+      />
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-4">
+        <h2 class="text-2xl md:text-4xl font-semibold tracking-wide">VIDEO VIGILANCIA</h2>
+        <p class="mt-3 max-w-2xl text-sm md:text-lg">SISTEMAS DE CÁMARAS DE SEGURIDAD.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTONES -->
+    <button
+      type="button"
+      id="prev"
+      aria-label="Anterior"
+      class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-black/60 transition"
+    >
+      ‹
+    </button>
+
+    <button
+      type="button"
+      id="next"
+      aria-label="Siguiente"
+      class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-black/60 transition"
+    >
+      ›
+    </button>
+</section>
+<!-- ================= FIN CARRUSEL ================= -->
+
+<script>
+// @ts-nocheck
+
+(() => {
+  const track = document.getElementById("carousel");
+  const prevBtn = document.getElementById("prev");
+  const nextBtn = document.getElementById("next");
+  if (!track) return;
+
+  const container = track.parentElement;
+  if (!container) return;
+
+  const realSlides = Array.from(track.children);
+  const n = realSlides.length;
+
+  if (n <= 1) {
+    prevBtn?.remove();
+    nextBtn?.remove();
+    return;
+  }
+
+  // ---- Clones: [lastClone][real...][firstClone]
+  const firstClone = realSlides[0].cloneNode(true);
+  const lastClone  = realSlides[n - 1].cloneNode(true);
+  firstClone.setAttribute("data-clone", "first");
+  lastClone.setAttribute("data-clone", "last");
+  track.insertBefore(lastClone, realSlides[0]);
+  track.appendChild(firstClone);
+
+  // 0 = lastClone, 1..n = reales, n+1 = firstClone
+  let index = 1;
+
+  const intervalMs = 6000;
+  let timer = null;
+
+  // Drag state
+  let isDragging = false;
+  let startX = 0;
+  let currentX = 0;
+  let startTranslatePx = 0;
+
+  // 🔒 lock durante animacion (evita “blanco”)
+  let isAnimating = false;
+  let animFallback = null;
+
+  const widthNow = () => container.clientWidth || 1;
+
+  const setTransition = (on) => {
+    track.style.transition = on ? "transform 700ms ease-in-out" : "none";
+  };
+
+  const translateToIndex = (i, animate = true) => {
+    index = i;
+
+    if (animate) {
+      isAnimating = true;
+
+      // fallback
+      if (animFallback) clearTimeout(animFallback);
+      animFallback = setTimeout(() => {
+        isAnimating = false;
+        animFallback = null;
+      }, 750);
+    }
+
+    setTransition(animate);
+    const x = -index * widthNow();
+    track.style.transform = `translate3d(${x}px, 0, 0)`;
+  };
+
+  // Si estamos en un clon, teletransporta sin animación ANTES de mover
+  const normalizeIfClone = () => {
+    if (index === 0) translateToIndex(n, false);
+    if (index === n + 1) translateToIndex(1, false);
+  };
+
+  const stopAuto = () => {
+    if (timer) clearInterval(timer);
+    timer = null;
+  };
+
+  const startAuto = () => {
+    stopAuto();
+    timer = setInterval(() => next(), intervalMs);
+  };
+
+  const next = () => {
+    if (isAnimating || isDragging) return;
+    normalizeIfClone();
+    translateToIndex(index + 1, true);
+  };
+
+  const prev = () => {
+    if (isAnimating || isDragging) return;
+    normalizeIfClone();
+    translateToIndex(index - 1, true);
+  };
+
+  track.addEventListener("transitionend", () => {
+    // terminar lock
+    isAnimating = false;
+    if (animFallback) {
+      clearTimeout(animFallback);
+      animFallback = null;
+    }
+
+    // teleport invisible al caer en clones
+    if (index === n + 1) {
+      // en el clon del primero -> salto al primero real
+      requestAnimationFrame(() => translateToIndex(1, false));
+    } else if (index === 0) {
+      // en el clon del último -> salto al último real
+      requestAnimationFrame(() => translateToIndex(n, false));
+    }
+  });
+
+  prevBtn?.addEventListener("click", () => {
+    stopAuto();
+    prev();
+    startAuto();
+  });
+
+  nextBtn?.addEventListener("click", () => {
+    stopAuto();
+    next();
+    startAuto();
+  });
+
+  // Pointer events
+  const onDown = (e) => {
+    if (isAnimating) return;
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+
+    normalizeIfClone();
+
+    isDragging = true;
+    stopAuto();
+    setTransition(false);
+
+    startX = e.clientX;
+    currentX = startX;
+    startTranslatePx = -index * widthNow();
+
+    track.setPointerCapture?.(e.pointerId);
+  };
+
+  const onMove = (e) => {
+    if (!isDragging) return;
+    currentX = e.clientX;
+    const dx = currentX - startX;
+    track.style.transform = `translate3d(${startTranslatePx + dx}px, 0, 0)`;
+  };
+
+  const onUp = () => {
+    if (!isDragging) return;
+    isDragging = false;
+
+    const dx = currentX - startX;
+    const w = widthNow();
+    const threshold = w * 0.2;
+
+    if (dx <= -threshold) {
+      normalizeIfClone();
+      translateToIndex(index + 1, true);
+    } else if (dx >= threshold) {
+      normalizeIfClone();
+      translateToIndex(index - 1, true);
+    } else {
+      translateToIndex(index, true);
+    }
+
+    startAuto();
+  };
+
+  track.style.touchAction = "pan-y";
+  track.style.willChange = "transform";
+
+  track.addEventListener("pointerdown", onDown);
+  track.addEventListener("pointermove", onMove);
+  track.addEventListener("pointerup", onUp);
+  track.addEventListener("pointercancel", onUp);
+  track.addEventListener("pointerleave", onUp);
+
+  // Init
+  translateToIndex(1, false);
+  startAuto();
+
+  window.addEventListener("resize", () => translateToIndex(index, false));
+})();
+</script>
