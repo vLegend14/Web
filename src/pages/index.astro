@@ -4,6 +4,7 @@ import Hero from "../components/hero.astro";
 import Slider from "../components/slider.astro";
 import Footer from "../components/footer.astro";
 import Contact from "../components/contact.astro";
+import Map from "../components/map.astro";
 import Services from "../components/services.astro";
 import WhyUs from "../components/whyUs.astro";
 import ProtecInfo from "../components/protecInfo.astro";
@@ -21,6 +22,10 @@ const desc = "Seguridad, vigilancia electrónica y outsourcing.";
     <WhyUs/>
     <ProtecInfo/>
   </main>
-  <Contact/>
+  <Map
+    title="GOOGLE MAP"
+    address="126 Av. Libertador Bernardo O'Higgins, San Felipe, Valparaíso"
+    embedSrc="https://www.google.com/maps/embed?pb=!4v1767107083931!6m8!1m7!1sa2tMZJP-yR0OrHH5G5N2eg!2m2!1d-32.75525785099195!2d-70.72540270263161!3f201.88!4f21.349999999999994!5f0.4000000000000002"
+  />
   <Footer/>
 </Layout>

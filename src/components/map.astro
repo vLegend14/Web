@@ -1,0 +1,52 @@
+---
+/**
+ * GoogleMapEmbed.astro
+ * Uso:
+ * <GoogleMapEmbed
+ *   title="GOOGLE MAP"
+ *   address="126 Av. Libertador Bernardo O'Higgins, San Felipe, Valparaíso"
+ *   embedSrc="https://www.google.com/maps/embed?pb=..."
+ * />
+ */
+
+const {
+  title = "GOOGLE MAP",
+  address = "",
+  embedSrc = "",
+  height = "420", // px
+} = Astro.props;
+
+if (!embedSrc) {
+  throw new Error("GoogleMapEmbed: falta prop 'embedSrc' (URL de Google Maps embed).");
+}
+---
+
+<section class="bg-protec-50">
+  <div class="max-w-7xl mx-auto px-6 py-10">
+    <header class="mb-4">
+      <h2 class="text-3xl md:text-4xl font-serif tracking-wide text-protec-900">
+        {title}
+      </h2>
+      {address && (
+        <p class="mt-1 text-sm text-protec-700">
+          {address}
+        </p>
+      )}
+      <div class="mt-4 h-px bg-protec-200"></div>
+    </header>
+
+    <div class="rounded-2xl overflow-hidden border border-protec-200 bg-white shadow-sm">
+      <iframe
+        src={embedSrc}
+        width="100%"
+        height={height}
+        style="border:0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title={title}
+        class="block w-full"
+      ></iframe>
+    </div>
+  </div>
+</section>

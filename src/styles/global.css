@@ -2,4 +2,15 @@
 
 @theme {
   --color-protec: #2B4270;
+  --color-protec-50: #EDF0F8;
+  --color-protec-100: #CBD6EB;
+  --color-protec-200: #AABCDF;
+  --color-protec-300: #89A1D2;
+  --color-protec-400: #6787C5;
+  --color-protec-500: #466CB9;
+  --color-protec-600: #3A5998;
+  --color-protec-700: #2B4270;
+  --color-protec-800: #203255;
+  --color-protec-900: #141E34;
+  --color-protec-950: #070B12;
 }
