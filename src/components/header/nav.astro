@@ -6,7 +6,7 @@ import { withBase } from "@/utils/url";
   <div class="flex items-center justify-between p-4 max-w-7xl mx-auto">
 
     <!-- LOGO -->
-    <a href="/" aria-label="Ir al inicio" class="inline-flex items-center gap-2">
+    <a href={withBase("/")} aria-label="Ir al inicio" class="inline-flex items-center gap-2">
       <img
         src={withBase("/img/logo.png")}
         width="385"
