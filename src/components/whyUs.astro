@@ -1,3 +1,7 @@
+---
+import { withBase } from "@/utils/url";
+---
+
 <section class="w-full bg-protec-900 text-protec-50 py-20">
   <div class="max-w-7xl mx-auto px-6">
     <h2 class="text-4xl md:text-5xl font-bold text-center text-white">
@@ -41,7 +45,7 @@
           <div class="mt-6 h-px w-full bg-protec-600/30"></div>
 
           <a
-            href="/contacto/contactenos"
+            href={withBase("/contacto/contactenos")}
             class="mt-6 inline-flex w-full items-center justify-center rounded-xl
                    bg-protec-600 hover:bg-protec-500 active:bg-protec-700 transition-colors
                    py-3 text-sm font-semibold text-white"
