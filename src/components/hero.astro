@@ -1,11 +1,14 @@
+---
+import { withBase } from "@/utils/url";
+---
 <section
   class="relative w-full min-h-screen overflow-hidden flex items-center justify-center"
   aria-label="Hero principal"
 >
   <!-- Fondo fijo SOLO dentro del HERO (recortado por overflow-hidden) -->
   <div
-    class="absolute inset-0 bg-[url('/img/01SALA-MONITOREO-PROTEC.jpg')]
-           bg-cover bg-center bg-no-repeat bg-fixed"
+    class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
+    style={`background-image: url('${withBase("/img/01SALA-MONITOREO-PROTEC.jpg")}')`}
     aria-hidden="true"
   ></div>
 
@@ -18,7 +21,6 @@
 
   <!-- Contenido -->
   <div class="relative z-10 max-w-5xl mx-auto px-6 text-center text-white -translate-y-12 md:-translate-y-16">
-    <!-- tu contenido -->
     <h1 class="text-3xl md:text-5xl lg:text-6xl font-serif tracking-wide uppercase">
       Su seguridad es nuestra<br />responsabilidad
     </h1>
@@ -29,7 +31,7 @@
 
     <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
       <a
-        href="/contacto/contactenos"
+        href={withBase("/contacto/contactenos")}
         class="px-8 py-3 rounded-lg bg-protec-700 text-white text-sm font-semibold tracking-wide
                hover:bg-protec-600 active:bg-protec-800 transition-colors ring-1 ring-white/10 shadow-lg"
       >

@@ -1,3 +1,6 @@
+---
+import { withBase } from "@/utils/url";
+---
 <section
   id="servicios"
   class="w-full bg-protec-900 text-protec-50 py-20"
@@ -20,28 +23,28 @@
           title: "Guardias de Seguridad",
           icon: "🛡️",
           desc: "Personal capacitado y protocolos.",
-          path: "/guardias/guardias-de-seguridad",
+          path: withBase("/guardias/guardias-de-seguridad"),
           featured: false
         },
         {
           title: "Vigilancia Electrónica y CCTV",
           icon: "📹",
           desc: "Cámaras, control y evidencia.",
-          path: "/vigilancia-electronica/camaras-de-seguridad",
+          path: withBase("/vigilancia-electronica/camaras-de-seguridad"),
           featured: false
         },
         {
           title: "Alarmas Monitoreadas 24/7",
           icon: "🚨",
           desc: "Respuesta inmediata y monitoreo.",
-          path: "/vigilancia-electronica/sistema-de-alarma",
+          path: withBase("/vigilancia-electronica/sistema-de-alarma"),
           featured: false
         },
         {
           title: "Outsourcing de Seguridad",
           icon: "🏢",
           desc: "Servicios a medida para empresas.",
-          path: "/outsourcing/outsourcing",
+          path: withBase("/outsourcing/outsourcing"),
           featured: false
         },
       ].map(service => (

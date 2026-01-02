@@ -1,5 +1,5 @@
 ---
-// slider.astro (PROTEC palette + full width)
+import { withBase } from "@/utils/url";
 ---
 
 <!-- ================= CARRUSEL ================= -->
@@ -15,14 +15,13 @@
     <!-- SLIDE 1 -->
     <div class="min-w-full relative">
       <img
-        src="/img/alarmas-slides.jpg"
+        src={withBase("/img/alarmas-slides.jpg")}
         alt="Alarmas"
         class="w-full h-[60vh] md:h-[520px] lg:h-[620px] object-cover"
         draggable="false"
         loading="eager"
       />
 
-      <!-- Overlay corporativo -->
       <div class="absolute inset-0 bg-protec-950/55"></div>
       <div class="absolute inset-0 bg-gradient-to-r from-protec-950/60 via-protec-900/25 to-transparent"></div>
 
@@ -35,7 +34,7 @@
         </p>
 
         <a
-          href="/vigilancia-electronica/sistema-de-alarma"
+          href={withBase("/vigilancia-electronica/sistema-de-alarma")}
           class="mt-8 inline-flex items-center justify-center rounded-xl
                  bg-protec-600 hover:bg-protec-500 active:bg-protec-700 transition-colors
                  px-8 py-3 text-sm font-semibold text-white shadow-lg ring-1 ring-white/10"
@@ -48,14 +47,14 @@
     <!-- SLIDE 2 -->
     <div class="min-w-full relative">
       <img
-        src="/img/CCTV-slides.jpg"
+        src={withBase("/img/CCTV-slides.jpg")}
         alt="Video Vigilancia"
         class="w-full h-[60vh] md:h-[520px] lg:h-[620px] object-cover"
         draggable="false"
         loading="eager"
       />
 
-      <!-- Overlay corporativo -->
+      <!-- Overlay -->
       <div class="absolute inset-0 bg-protec-950/55"></div>
       <div class="absolute inset-0 bg-gradient-to-r from-protec-950/60 via-protec-900/25 to-transparent"></div>
 
@@ -68,7 +67,7 @@
         </p>
 
         <a
-          href="/vigilancia-electronica/camaras-de-seguridad"
+          href={withBase("/vigilancia-electronica/camaras-de-seguridad")}
           class="mt-8 inline-flex items-center justify-center rounded-xl
                  bg-protec-600 hover:bg-protec-500 active:bg-protec-700 transition-colors
                  px-8 py-3 text-sm font-semibold text-white shadow-lg ring-1 ring-white/10"
@@ -106,7 +105,7 @@
     ›
   </button>
 
-  <!-- Línea inferior corporativa -->
+  <!-- Línea inferior -->
   <div class="absolute bottom-0 left-0 w-full h-1 bg-protec-700"></div>
 </section>
 <!-- ================= FIN CARRUSEL ================= -->

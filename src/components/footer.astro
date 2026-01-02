@@ -1,5 +1,6 @@
 ---
 const year = new Date().getFullYear();
+import { withBase } from "@/utils/url";
 ---
 
 <footer class="bg-protec-900 text-protec-100">
@@ -51,7 +52,7 @@ const year = new Date().getFullYear();
       <!-- Col 2: Logo -->
       <div class="md:pl-4 md:border-l md:border-white/10">
         <img
-          src="/img/logo.png"
+          src={withBase("/img/logo.png")}
           alt="PROTEC Chile"
           class="h-9 w-auto mb-3 brightness-0 invert"
           loading="lazy"
@@ -78,7 +79,7 @@ const year = new Date().getFullYear();
 
         <div class="rounded-xl bg-protec-800/60 ring-1 ring-white/10 px-3 py-3">
           <img
-            src="/img/certificacion.png"
+            src={withBase("/img/certificacion.png")}
             alt="Certificación Internacional"
             class="w-full max-w-[240px] mx-auto"
             loading="lazy"
@@ -94,7 +95,7 @@ const year = new Date().getFullYear();
 
         <div class="rounded-xl bg-protec-800/60 ring-1 ring-white/10 px-3 py-3">
           <img
-            src="/img/ALPHAIII.png"
+            src={withBase("/img/ALPHAIII.png")}
             alt="Conectados Alpha III"
             class="w-full max-w-[240px] mx-auto"
             loading="lazy"

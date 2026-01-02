@@ -1,7 +1,7 @@
 ---
 /* =========================
-   TIPOS
-   ========================= */
+TIPOS
+========================= */
 
 interface ContactItem {
   icon: string;
@@ -26,8 +26,9 @@ interface Props {
 }
 
 /* =========================
-   PROPS + DEFAULTS
-   ========================= */
+PROPS + DEFAULTS
+========================= */
+import { withBase } from "@/utils/url";
 
 const {
   title = "PROTEC CHILE",
@@ -47,7 +48,7 @@ const {
     { icon: "✉️", value: "contacto@protec.cl", href: "mailto:contacto@protec.cl" },
   ],
   certTitle = "CERTIFICACIÓN INTERNACIONAL",
-  certImage = "/img/certificacion.png",
+  certImage = withBase("/img/certificacion.png"),
   certAlt = "Certificación ISO 9001",
   certCaption = "",
 } = Astro.props as Props;
