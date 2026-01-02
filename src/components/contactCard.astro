@@ -1,0 +1,100 @@
+---
+/* =========================
+TIPOS
+========================= */
+
+interface ContactItem {
+  icon: string;
+  label?: string;
+  value: string;
+  href: string;
+}
+
+interface Props {
+  contactTitle?: string;
+  contactItems?: ContactItem[];
+  certTitle?: string;
+  certImage?: string;
+  certAlt?: string;
+  certCaption?: string;
+}
+
+/* =========================
+PROPS + DEFAULTS
+========================= */
+import { withBase } from "@/utils/url";
+
+const {
+  contactTitle = "DATOS DE CONTACTO",
+  contactItems = [
+    { icon: "☎️", label: "FONO CONTACTO", value: "600 620 9 620", href: "tel:6006209620" },
+    { icon: "📞", value: "+56 9 5159 4960", href: "tel:+56951594960" },
+    { icon: "✉️", value: "contacto@protec.cl", href: "mailto:contacto@protec.cl" },
+  ],
+  certTitle = "CERTIFICACIÓN INTERNACIONAL",
+  certImage = withBase("/img/certificacion.png"),
+  certAlt = "Certificación ISO 9001",
+  certCaption = "",
+} = Astro.props as Props;
+---
+
+<section class="w-full bg-protec-900 text-protec-50">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid lg:grid-cols-3 gap-10 items-start">
+        <div class="rounded-2xl bg-protec-950/40 ring-1 ring-white/10 p-6 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.8)]">
+
+          <!-- CONTACTO -->
+          <h3 class="text-[11px] font-extrabold tracking-[0.22em] uppercase text-protec-100/80">
+            {contactTitle}
+          </h3>
+
+          <div class="mt-4 space-y-3">
+            {contactItems.map((item) => (
+              <div class="flex items-start gap-3">
+                <span class="mt-0.5">{item.icon}</span>
+
+                <div class="text-sm">
+                  {item.label && (
+                    <div class="font-semibold text-protec-50">
+                      {item.label}
+                    </div>
+                  )}
+
+                  <a
+                    href={item.href}
+                    class="text-protec-100/90 hover:text-white underline-offset-4 hover:underline decoration-white/20 hover:decoration-white/60 transition-colors"
+                  >
+                    {item.value}
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <hr class="my-6 border-white/10" />
+
+          <!-- CERTIFICACIÓN -->
+          <h3 class="text-[11px] font-extrabold tracking-[0.22em] uppercase text-protec-100/80">
+            {certTitle}
+          </h3>
+
+          <div class="mt-4 rounded-xl bg-protec-900/50 ring-1 ring-white/10 p-3">
+            <img
+              src={certImage}
+              alt={certAlt}
+              class="w-full h-auto object-contain"
+              loading="lazy"
+              decoding="async"
+            />
+
+            {certCaption && (
+              <p class="mt-2 text-xs text-protec-100/70 text-center">
+                {certCaption}
+              </p>
+            )}
+          </div>
+
+        </div>
+    </div>
+  </div>
+</section>
