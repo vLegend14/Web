@@ -1,43 +1,58 @@
-# Astro Starter Kit: Minimal
+# PROTEC · Rediseño Web (Demo)
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Rediseño visual y estructural del sitio web de **PROTEC CHILE**, desarrollado como **demo / avance** para evaluación y presentación.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Este proyecto no representa el sitio productivo final, sino una **propuesta de mejora** en diseño, estructura y experiencia de usuario.
 
-## 🚀 Project Structure
+---
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🎯 Objetivo del proyecto
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- Modernizar la apariencia del sitio actual
+- Mejorar legibilidad y jerarquía visual
+- Proponer una estructura más clara de navegación
+- Presentar un avance visual para revisión
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-Any static assets, like images, can be placed in the `public/` directory.
+*Este proyecto aún no está completo, avance estimado ≈70-80%
+## 🛠️ Stack técnico
 
-## 🧞 Commands
+- **Astro** — Generador de sitios estáticos
+- **Tailwind CSS** — Estilos y layout
+- **GitHub Pages** — Deploy temporal (preview)
 
-All commands are run from the root of the project, from a terminal:
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 🌐 Demo online
 
-## 👀 Want to learn more?
+👉 **Vista previa:**  
+**https://vlegend14.github.io/Web/**  
+*(deploy temporal para revisión)*
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+
+## 📂 Estructura general
+
+- Páginas estáticas (Astro)
+- Componentes reutilizables
+- Diseño responsive
+- Enfoque en claridad y estética corporativa
+
+---
+
+## ⚠️ Alcance y estado
+
+- Proyecto en **desarrollo / iteración**
+- Contenido y secciones aún sujetas a cambios
+- Algunas funcionalidades son demostrativas
+- No incluye backend ni lógica de servidor
+
+---
+
+## ▶️ Uso local
+
+```bash
+npm install
+npm run dev
