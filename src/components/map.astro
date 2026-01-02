@@ -7,6 +7,7 @@
  *   title="GOOGLE MAP"
  *   address="126 Av. Libertador Bernardo O'Higgins, San Felipe, Valparaíso"
  *   embedSrc="https://www.google.com/maps/embed?pb=..."
+ *   mapLink="https://maps.app.goo.gl/q7ridYwjHmvmoocr7"
  *   height="420"
  * />
  */
@@ -15,6 +16,7 @@ const {
   title = "GOOGLE MAP",
   address = "",
   embedSrc = "",
+  mapLink = "",
   height = "520", // px
 } = Astro.props;
 
@@ -23,8 +25,14 @@ if (!embedSrc) {
     "GoogleMapEmbed: falta prop 'embedSrc' (URL de Google Maps embed)."
   );
 }
----
 
+// Link final para el botón
+const finalMapLink = mapLink
+  ? mapLink
+  : address
+    ? `https://www.google.com/maps?q=${encodeURIComponent(address)}`
+    : "https://www.google.com/maps";
+---
 <section class="w-full bg-protec-900 text-protec-50">
   <div class="max-w-7xl mx-auto px-6 py-14">
 
@@ -45,7 +53,7 @@ if (!embedSrc) {
 
     <!-- MAP CONTAINER -->
     <div
-      class="rounded-2xl overflow-hidden
+      class="relative rounded-2xl overflow-hidden
              bg-protec-950/40
              ring-1 ring-white/10
              shadow-[0_20px_60px_-30px_rgba(0,0,0,0.8)]"
@@ -55,16 +63,31 @@ if (!embedSrc) {
         width="100%"
         height={height}
         style="border:0"
-        allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
         title={title}
         class="block w-full"
       ></iframe>
+
+      <!-- CTA / Fallback -->
+      <div class="pointer-events-none absolute inset-0 flex items-end justify-start p-4">
+        <a
+          href={finalMapLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="pointer-events-auto inline-flex items-center gap-2
+                 rounded-xl bg-black/60 px-4 py-2 text-sm text-white
+                 ring-1 ring-white/15 backdrop-blur
+                 hover:bg-black/70 transition"
+        >
+          Ver en Google Maps
+        </a>
+      </div>
     </div>
 
     <p class="mt-4 text-xs text-protec-100/70">
-      Puedes mover y acercar el mapa dentro del recuadro.
+      Puedes mover y acercar el mapa dentro del recuadro, o abrirlo directamente en Google Maps.
     </p>
 
   </div>
