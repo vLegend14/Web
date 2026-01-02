@@ -1,9 +1,10 @@
-<section class="w-full bg-[#0b0f1a] text-white py-20">
+<section class="w-full bg-protec-900 text-protec-50 py-20">
   <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-4xl md:text-5xl font-bold text-center">
+    <h2 class="text-4xl md:text-5xl font-bold text-center text-white">
       ¿Por qué elegirnos?
     </h2>
-    <p class="mt-4 text-center text-white/60 max-w-2xl mx-auto">
+
+    <p class="mt-4 text-center text-protec-100 max-w-2xl mx-auto">
       Seguridad y experiencia respaldadas por décadas de trabajo y estándares de calidad.
     </p>
 
@@ -17,30 +18,33 @@
         <div
           class:list={[
             "relative rounded-2xl p-8",
-            "bg-white/[0.06] ring-1 ring-white/10",
+            "bg-protec-800/60 ring-1 ring-protec-600/30",
             "shadow-[0_20px_60px_-30px_rgba(0,0,0,0.8)]",
-            "transition hover:bg-white/[0.08]",
-            i === 1 ? "md:-translate-y-2 bg-white/[0.08] ring-white/20" : ""
+            "transition hover:bg-protec-800/80",
+            i === 1 ? "bg-protec-700/80 ring-protec-500/50" : ""
           ]}
         >
           <div class="flex items-center justify-between">
-            <h3 class="text-lg font-semibold">{item.title}</h3>
-            <span class="text-xs px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/10 text-white/80">
+            <h3 class="text-lg font-semibold text-white">
+              {item.title}
+            </h3>
+
+            <span class="text-xs px-3 py-1 rounded-full bg-protec-950/40 ring-1 ring-protec-600/30 text-protec-100">
               {item.badge}
             </span>
           </div>
 
-          <p class="mt-4 text-sm text-white/60 leading-relaxed">
+          <p class="mt-4 text-sm text-protec-100 leading-relaxed">
             {item.desc}
           </p>
 
-          <div class="mt-6 h-px w-full bg-white/10"></div>
+          <div class="mt-6 h-px w-full bg-protec-600/30"></div>
 
           <a
             href="/contacto/contactenos"
             class="mt-6 inline-flex w-full items-center justify-center rounded-xl
-                   bg-[#5b63ff] hover:bg-[#4f58ff] transition
-                   py-3 text-sm font-semibold text-protec-50"
+                   bg-protec-600 hover:bg-protec-500 active:bg-protec-700 transition-colors
+                   py-3 text-sm font-semibold text-white"
           >
             Solicitar información
           </a>

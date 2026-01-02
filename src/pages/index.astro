@@ -3,7 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/hero.astro";
 import Slider from "../components/slider.astro";
 import Footer from "../components/footer.astro";
-import Contact from "../components/contact.astro";
 import Map from "../components/map.astro";
 import Services from "../components/services.astro";
 import WhyUs from "../components/whyUs.astro";
@@ -14,7 +13,7 @@ const desc = "Seguridad, vigilancia electrónica y outsourcing.";
 ---
 
 <Layout title={title} desc={desc}>
-  <main class="space-y-12">
+  <main class="min-h-screen space-y-0">
     <Hero/>
     <Slider/>
     <slot />
@@ -25,7 +24,7 @@ const desc = "Seguridad, vigilancia electrónica y outsourcing.";
   <Map
     title="GOOGLE MAP"
     address="126 Av. Libertador Bernardo O'Higgins, San Felipe, Valparaíso"
-    embedSrc="https://www.google.com/maps/embed?pb=!4v1767107083931!6m8!1m7!1sa2tMZJP-yR0OrHH5G5N2eg!2m2!1d-32.75525785099195!2d-70.72540270263161!3f201.88!4f21.349999999999994!5f0.4000000000000002"
+    embedSrc="https://www.google.com/maps/embed?pb=!4v1767323470580!6m8!1m7!1sa2tMZJP-yR0OrHH5G5N2eg!2m2!1d-32.75525785099195!2d-70.72540270263161!3f171.126951052399!4f3.254629687501293!5f1.5362075765590846"
   />
   <Footer/>
 </Layout>

@@ -1,11 +1,13 @@
 ---
 /**
  * GoogleMapEmbed.astro
+ *
  * Uso:
  * <GoogleMapEmbed
  *   title="GOOGLE MAP"
  *   address="126 Av. Libertador Bernardo O'Higgins, San Felipe, Valparaíso"
  *   embedSrc="https://www.google.com/maps/embed?pb=..."
+ *   height="420"
  * />
  */
 
@@ -13,29 +15,41 @@ const {
   title = "GOOGLE MAP",
   address = "",
   embedSrc = "",
-  height = "420", // px
+  height = "520", // px
 } = Astro.props;
 
 if (!embedSrc) {
-  throw new Error("GoogleMapEmbed: falta prop 'embedSrc' (URL de Google Maps embed).");
+  throw new Error(
+    "GoogleMapEmbed: falta prop 'embedSrc' (URL de Google Maps embed)."
+  );
 }
 ---
 
-<section class="bg-protec-50">
-  <div class="max-w-7xl mx-auto px-6 py-10">
-    <header class="mb-4">
-      <h2 class="text-3xl md:text-4xl font-serif tracking-wide text-protec-900">
+<section class="w-full bg-protec-900 text-protec-50">
+  <div class="max-w-7xl mx-auto px-6 py-14">
+
+    <!-- HEADER -->
+    <header class="mb-6">
+      <h2 class="text-3xl md:text-4xl font-serif tracking-wide text-white">
         {title}
       </h2>
+
       {address && (
-        <p class="mt-1 text-sm text-protec-700">
+        <p class="mt-2 text-sm text-protec-100/90">
           {address}
         </p>
       )}
-      <div class="mt-4 h-px bg-protec-200"></div>
+
+      <div class="mt-5 h-px bg-white/10"></div>
     </header>
 
-    <div class="rounded-2xl overflow-hidden border border-protec-200 bg-white shadow-sm">
+    <!-- MAP CONTAINER -->
+    <div
+      class="rounded-2xl overflow-hidden
+             bg-protec-950/40
+             ring-1 ring-white/10
+             shadow-[0_20px_60px_-30px_rgba(0,0,0,0.8)]"
+    >
       <iframe
         src={embedSrc}
         width="100%"
@@ -48,5 +62,10 @@ if (!embedSrc) {
         class="block w-full"
       ></iframe>
     </div>
+
+    <p class="mt-4 text-xs text-protec-100/70">
+      Puedes mover y acercar el mapa dentro del recuadro.
+    </p>
+
   </div>
 </section>

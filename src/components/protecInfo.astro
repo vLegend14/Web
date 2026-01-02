@@ -53,37 +53,39 @@ const {
 } = Astro.props as Props;
 ---
 
-<section class="max-w-7xl mx-auto px-4 py-8 bg-white">
-  <div class="max-w-7xl mx-auto px-6 py-12">
+<section class="w-full bg-protec-900 text-protec-50">
+  <div class="max-w-7xl mx-auto px-6 py-16">
     <div class="grid lg:grid-cols-3 gap-10 items-start">
 
       <!-- ===================== -->
       <!-- COLUMNA IZQUIERDA     -->
       <!-- ===================== -->
       <div class="lg:col-span-2">
-        <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
           {title}
         </h2>
 
-        <p class="mt-4 font-semibold text-slate-900">
+        <p class="mt-4 font-semibold text-protec-100">
           {subtitleStrong}
         </p>
 
-        <div class="mt-5 space-y-5 text-slate-700 leading-relaxed">
+        <div class="mt-6 space-y-5 text-protec-100/90 leading-relaxed">
           {paragraphs.map((p) => (
             <p>{p}</p>
           ))}
         </div>
 
-        <p class="mt-6 font-bold text-slate-900">
+        <p class="mt-8 font-bold text-white">
           {highlight}
         </p>
 
-        <p class="mt-4 font-extrabold text-blue-800">
-          {isoText}
+        <p class="mt-4 inline-flex items-center gap-2 font-extrabold tracking-wide text-protec-200">
+          <span class="inline-flex h-7 items-center rounded-full bg-protec-800/70 px-3 ring-1 ring-white/10">
+            {isoText}
+          </span>
         </p>
 
-        <p class="mt-10 text-xs text-slate-500">
+        <p class="mt-10 text-xs text-protec-100/70">
           {privacyNote}
         </p>
       </div>
@@ -92,10 +94,10 @@ const {
       <!-- COLUMNA DERECHA      -->
       <!-- ===================== -->
       <aside class="lg:col-span-1">
-        <div class="rounded-xl border border-slate-200 p-6 shadow-sm">
+        <div class="rounded-2xl bg-protec-950/40 ring-1 ring-white/10 p-6 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.8)]">
 
           <!-- CONTACTO -->
-          <h3 class="text-sm font-extrabold tracking-wide text-slate-900">
+          <h3 class="text-[11px] font-extrabold tracking-[0.22em] uppercase text-protec-100/80">
             {contactTitle}
           </h3>
 
@@ -103,15 +105,17 @@ const {
             {contactItems.map((item) => (
               <div class="flex items-start gap-3">
                 <span class="mt-0.5">{item.icon}</span>
+
                 <div class="text-sm">
                   {item.label && (
-                    <div class="font-semibold text-slate-900">
+                    <div class="font-semibold text-protec-50">
                       {item.label}
                     </div>
                   )}
+
                   <a
                     href={item.href}
-                    class="text-slate-700 hover:text-blue-800 underline-offset-4 hover:underline"
+                    class="text-protec-100/90 hover:text-white underline-offset-4 hover:underline decoration-white/20 hover:decoration-white/60 transition-colors"
                   >
                     {item.value}
                   </a>
@@ -120,14 +124,14 @@ const {
             ))}
           </div>
 
-          <hr class="my-6 border-slate-200" />
+          <hr class="my-6 border-white/10" />
 
           <!-- CERTIFICACIÓN -->
-          <h3 class="text-sm font-extrabold tracking-wide text-slate-900">
+          <h3 class="text-[11px] font-extrabold tracking-[0.22em] uppercase text-protec-100/80">
             {certTitle}
           </h3>
 
-          <div class="mt-4 rounded-lg border border-slate-200 bg-slate-50 p-3">
+          <div class="mt-4 rounded-xl bg-protec-900/50 ring-1 ring-white/10 p-3">
             <img
               src={certImage}
               alt={certAlt}
@@ -135,9 +139,12 @@ const {
               loading="lazy"
               decoding="async"
             />
-            <p class="mt-2 text-xs text-slate-600 text-center">
-              {certCaption}
-            </p>
+
+            {certCaption && (
+              <p class="mt-2 text-xs text-protec-100/70 text-center">
+                {certCaption}
+              </p>
+            )}
           </div>
 
         </div>

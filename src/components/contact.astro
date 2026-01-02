@@ -1,20 +1,182 @@
-<section id="contacto" class="max-w-7xl mx-auto px-4 py-20 bg-slate-100">
-  <div class="max-w-3xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center mb-8">
-      Contáctanos
-    </h2>
+<section id="contacto" class="w-full bg-protec-900 text-protec-50">
+  <div class="max-w-7xl mx-auto px-6 py-16 md:py-20">
 
-    <form class="bg-white p-8 rounded-xl shadow grid gap-4">
-      <input class="border p-3 rounded" placeholder="Nombre" />
-      <input class="border p-3 rounded" placeholder="Email" />
-      <input class="border p-3 rounded" placeholder="Teléfono" />
-      <textarea class="border p-3 rounded" placeholder="Mensaje"></textarea>
+    <!-- CARD CONTENEDORA -->
+    <div
+      id="contact-card"
+      class="max-w-lg mx-auto
+             rounded-3xl
+             bg-protec-950/40 backdrop-blur
+             ring-1 ring-white/10
+             shadow-[0_40px_90px_-40px_rgba(0,0,0,0.9)]
+             px-6 py-8 md:px-8 md:py-10
+             -translate-y-8 md:-translate-y-12"
+    >
+      <!-- WRAPPER ANIMADO (no pelea con el translate del card) -->
+      <div data-animate>
+        <!-- TÍTULO -->
+        <h2
+          class="text-2xl md:text-3xl font-serif tracking-wide text-center text-white mb-8 md:mb-10"
+          data-stagger
+        >
+          Contáctanos
+        </h2>
 
-      <button
-        class="bg-amber-500 text-black py-3 rounded-lg font-semibold hover:bg-amber-400 transition"
-      >
-        Enviar Mensaje
-      </button>
-    </form>
+        <form class="grid gap-6">
+          <!-- NOMBRE -->
+          <label class="relative block" data-stagger>
+            <span class="absolute -top-2.5 left-3 px-2 text-xs bg-protec-950 text-protec-100 tracking-wide">
+              Nombre
+            </span>
+            <input
+              type="text"
+              class="w-full h-11 md:h-12 rounded-md
+                     bg-protec-900/80 text-white
+                     border border-protec-600/60
+                     px-4 outline-none
+                     focus:border-protec-400
+                     focus:ring-2 focus:ring-protec-400/30
+                     transition"
+            />
+          </label>
+
+          <!-- EMAIL -->
+          <label class="relative block" data-stagger>
+            <span class="absolute -top-2.5 left-3 px-2 text-xs bg-protec-950 text-protec-100 tracking-wide">
+              Email
+            </span>
+            <input
+              type="email"
+              class="w-full h-11 md:h-12 rounded-md
+                     bg-protec-900/80 text-white
+                     border border-protec-600/60
+                     px-4 outline-none
+                     focus:border-protec-400
+                     focus:ring-2 focus:ring-protec-400/30
+                     transition"
+            />
+          </label>
+
+          <!-- ASUNTO -->
+          <label class="relative block" data-stagger>
+            <span class="absolute -top-2.5 left-3 px-2 text-xs bg-protec-950 text-protec-100 tracking-wide">
+              Asunto
+            </span>
+            <input
+              type="text"
+              class="w-full h-11 md:h-12 rounded-md
+                     bg-protec-900/80 text-white
+                     border border-protec-600/60
+                     px-4 outline-none
+                     focus:border-protec-400
+                     focus:ring-2 focus:ring-protec-400/30
+                     transition"
+            />
+          </label>
+
+          <!-- MENSAJE -->
+          <label class="relative block" data-stagger>
+            <span class="absolute -top-2.5 left-3 px-2 text-xs bg-protec-950 text-protec-100 tracking-wide">
+              Mensaje
+            </span>
+            <textarea
+              rows="6"
+              class="w-full rounded-md
+                     bg-protec-900/80 text-white
+                     border border-protec-600/60
+                     px-4 py-3 outline-none resize-none
+                     focus:border-protec-400
+                     focus:ring-2 focus:ring-protec-400/30
+                     transition"
+            ></textarea>
+          </label>
+
+          <!-- BOTÓN -->
+          <button
+            type="submit"
+            class="mt-2 inline-flex items-center justify-center
+                   rounded-lg px-8 py-3
+                   bg-protec-700 text-white font-semibold tracking-wide
+                   hover:bg-protec-600 active:bg-protec-800
+                   ring-1 ring-white/10 shadow-lg
+                   transition"
+            data-stagger
+          >
+            Enviar mensaje
+          </button>
+        </form>
+      </div>
+    </div>
   </div>
 </section>
+
+<style>
+  /* Estado inicial (solo si hay motion) */
+  @media (prefers-reduced-motion: no-preference) {
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(14px);
+      transition:
+        opacity 520ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        transform 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      will-change: opacity, transform;
+    }
+
+    [data-animate].is-inview {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Cada item stagger entra suave */
+    [data-stagger] {
+      opacity: 0;
+      transform: translateY(10px);
+      transition:
+        opacity 520ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        transform 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      will-change: opacity, transform;
+    }
+
+    [data-animate].is-inview [data-stagger] {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Reduced motion: sin animación, todo visible */
+  @media (prefers-reduced-motion: reduce) {
+    [data-animate], [data-stagger] {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    const card = document.getElementById("contact-card");
+    if (!card) return;
+
+    const wrap = card.querySelector("[data-animate]");
+    if (!wrap) return;
+
+    const items = Array.from(card.querySelectorAll("[data-stagger]"));
+
+    // Stagger “pro” real (sin depender de nth-child)
+    items.forEach((el, i) => {
+      el.style.transitionDelay = `${90 + i * 55}ms`;
+    });
+
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        wrap.classList.add("is-inview");
+        obs.disconnect();
+      },
+      { threshold: 0.25 }
+    );
+
+    obs.observe(card);
+  })();
+</script>

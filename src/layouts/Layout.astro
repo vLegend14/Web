@@ -11,10 +11,11 @@ const { title, desc } = Astro.props;
   <head>
     <BaseHead title={title} desc={desc} />
   </head>
-  <body class="bg-protec text-slate-900">
+
+  <body class="bg-protec-900 text-slate-900">
     <Header />
     <main id="main-content" class="min-h-screen">
-		<slot />
+      <slot />
     </main>
   </body>
 </html>

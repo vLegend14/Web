@@ -1,59 +1,113 @@
+---
+// slider.astro (PROTEC palette + full width)
+---
+
 <!-- ================= CARRUSEL ================= -->
-<section class="max-w-7xl mx-auto px-4 py-8 relative z-0 w-full overflow-hidden rounded-xl select-none">
+<section
+  class="relative z-10 w-full overflow-hidden select-none bg-protec-900 isolate"
+  aria-label="Carrusel principal"
+>
   <!-- TRACK -->
   <div
     id="carousel"
     class="flex transition-transform duration-700 ease-in-out will-change-transform"
   >
-  <!-- SLIDE 1 -->
+    <!-- SLIDE 1 -->
     <div class="min-w-full relative">
       <img
         src="/img/alarmas-slides.jpg"
         alt="Alarmas"
-        class="w-full h-[300px] md:h-[480px] object-cover"
+        class="w-full h-[60vh] md:h-[520px] lg:h-[620px] object-cover"
         draggable="false"
+        loading="eager"
       />
-      <div class="absolute inset-0 bg-black/50"></div>
-      <div class="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-4">
-        <h1 class="text-2xl md:text-4xl font-semibold tracking-wide">ALARMAS</h1>
-        <p class="mt-3 max-w-2xl text-sm md:text-lg">CONECTADOS A CARABINEROS DE CHILE – ALPHA III</p>
+
+      <!-- Overlay corporativo -->
+      <div class="absolute inset-0 bg-protec-950/55"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-protec-950/60 via-protec-900/25 to-transparent"></div>
+
+      <div class="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-6">
+        <h1 class="text-2xl md:text-4xl lg:text-5xl font-semibold tracking-wide uppercase">
+          ALARMAS
+        </h1>
+        <p class="mt-3 max-w-2xl text-sm md:text-lg text-protec-100">
+          CONECTADOS A CARABINEROS DE CHILE – ALPHA III
+        </p>
+
+        <a
+          href="/vigilancia-electronica/sistema-de-alarma"
+          class="mt-8 inline-flex items-center justify-center rounded-xl
+                 bg-protec-600 hover:bg-protec-500 active:bg-protec-700 transition-colors
+                 px-8 py-3 text-sm font-semibold text-white shadow-lg ring-1 ring-white/10"
+        >
+          Ver servicio
+        </a>
       </div>
     </div>
 
-  <!-- SLIDE 2 -->
+    <!-- SLIDE 2 -->
     <div class="min-w-full relative">
       <img
         src="/img/CCTV-slides.jpg"
         alt="Video Vigilancia"
-        class="w-full h-[300px] md:h-[480px] object-cover"
+        class="w-full h-[60vh] md:h-[520px] lg:h-[620px] object-cover"
         draggable="false"
+        loading="eager"
       />
-      <div class="absolute inset-0 bg-black/50"></div>
-      <div class="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-4">
-        <h2 class="text-2xl md:text-4xl font-semibold tracking-wide">VIDEO VIGILANCIA</h2>
-        <p class="mt-3 max-w-2xl text-sm md:text-lg">SISTEMAS DE CÁMARAS DE SEGURIDAD.</p>
+
+      <!-- Overlay corporativo -->
+      <div class="absolute inset-0 bg-protec-950/55"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-protec-950/60 via-protec-900/25 to-transparent"></div>
+
+      <div class="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-6">
+        <h2 class="text-2xl md:text-4xl lg:text-5xl font-semibold tracking-wide uppercase">
+          VIDEO VIGILANCIA
+        </h2>
+        <p class="mt-3 max-w-2xl text-sm md:text-lg text-protec-100">
+          SISTEMAS DE CÁMARAS DE SEGURIDAD.
+        </p>
+
+        <a
+          href="/vigilancia-electronica/camaras-de-seguridad"
+          class="mt-8 inline-flex items-center justify-center rounded-xl
+                 bg-protec-600 hover:bg-protec-500 active:bg-protec-700 transition-colors
+                 px-8 py-3 text-sm font-semibold text-white shadow-lg ring-1 ring-white/10"
+        >
+          Ver servicio
+        </a>
       </div>
     </div>
   </div>
 
   <!-- BOTONES -->
-    <button
-      type="button"
-      id="prev"
-      aria-label="Anterior"
-      class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-black/60 transition"
-    >
-      ‹
-    </button>
+  <button
+    type="button"
+    id="prev"
+    aria-label="Anterior"
+    class="absolute left-4 top-1/2 -translate-y-1/2
+           bg-protec-950/40 text-white rounded-full w-11 h-11
+           flex items-center justify-center
+           ring-1 ring-white/10 shadow-lg
+           hover:bg-protec-950/60 transition"
+  >
+    ‹
+  </button>
 
-    <button
-      type="button"
-      id="next"
-      aria-label="Siguiente"
-      class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-black/60 transition"
-    >
-      ›
-    </button>
+  <button
+    type="button"
+    id="next"
+    aria-label="Siguiente"
+    class="absolute right-4 top-1/2 -translate-y-1/2
+           bg-protec-950/40 text-white rounded-full w-11 h-11
+           flex items-center justify-center
+           ring-1 ring-white/10 shadow-lg
+           hover:bg-protec-950/60 transition"
+  >
+    ›
+  </button>
+
+  <!-- Línea inferior corporativa -->
+  <div class="absolute bottom-0 left-0 w-full h-1 bg-protec-700"></div>
 </section>
 <!-- ================= FIN CARRUSEL ================= -->
 
@@ -114,7 +168,6 @@
     if (animate) {
       isAnimating = true;
 
-      // fallback
       if (animFallback) clearTimeout(animFallback);
       animFallback = setTimeout(() => {
         isAnimating = false;
@@ -127,7 +180,6 @@
     track.style.transform = `translate3d(${x}px, 0, 0)`;
   };
 
-  // Si estamos en un clon, teletransporta sin animación ANTES de mover
   const normalizeIfClone = () => {
     if (index === 0) translateToIndex(n, false);
     if (index === n + 1) translateToIndex(1, false);
@@ -156,19 +208,15 @@
   };
 
   track.addEventListener("transitionend", () => {
-    // terminar lock
     isAnimating = false;
     if (animFallback) {
       clearTimeout(animFallback);
       animFallback = null;
     }
 
-    // teleport invisible al caer en clones
     if (index === n + 1) {
-      // en el clon del primero -> salto al primero real
       requestAnimationFrame(() => translateToIndex(1, false));
     } else if (index === 0) {
-      // en el clon del último -> salto al último real
       requestAnimationFrame(() => translateToIndex(n, false));
     }
   });
