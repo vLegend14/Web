@@ -1,9 +1,82 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import ContactCard from "../../components/contactCard.astro";
 ---
 
-<Layout>
-    <h1>en proceso...</h1>
-    <h1>nosotros</h1>
-    <p>mision, vision y objetivos</p>
+<Layout
+  title="Misión, Visión y Objetivos - PROTEC Chile"
+  desc="Misión, Visión y Objetivos de PROTEC Chile"
+>
+  <section class="w-full bg-protec-900 text-protec-50">
+    <div class="max-w-7xl mx-auto px-6 pt-12 pb-16">
+
+      <!-- TÍTULO -->
+      <header class="mb-10">
+        <h1 class="text-3xl md:text-4xl font-serif text-protec-100">
+          Misión / Visión / Objetivos
+        </h1>
+        <div class="mt-4 h-px w-full bg-white/10"></div>
+      </header>
+
+      <!-- GRID PRINCIPAL -->
+      <div class="grid gap-12 lg:grid-cols-12 items-start">
+
+        <!-- ================= CONTENIDO ================= -->
+        <article class="lg:col-span-8 space-y-10 text-[15px] leading-relaxed text-protec-100">
+
+          <!-- MISIÓN -->
+          <section>
+            <h2 class="font-serif text-2xl mb-4 text-protec-50">Nuestra Misión:</h2>
+            <ul class="list-disc pl-5 space-y-2 marker:text-protec-400">
+              <li>Proteger la vida, la integridad física y los bienes de clientes y usuarios.</li>
+              <li>Prevenir riesgos y amenazas mediante la implementación de medidas de seguridad efectivas.</li>
+              <li>Ofrecer servicios de seguridad personalizados y de alta calidad.</li>
+              <li>Mantener un alto nivel de profesionalismo, ética y responsabilidad.</li>
+            </ul>
+          </section>
+
+          <!-- VISIÓN -->
+          <section>
+            <h2 class="font-serif text-2xl mb-4 text-protec-50">Nuestra Visión:</h2>
+            <ul class="list-disc pl-5 space-y-2 marker:text-protec-400">
+              <li>Ser reconocidos como empresa líder en el sector de la seguridad, a nivel local o regional.</li>
+              <li>Expandir nuestras operaciones y llegar a nuevos clientes y mercados, manteniendo el compromiso con la calidad.</li>
+              <li>Contribuir a la construcción de entornos seguros y protegidos para la comunidad.</li>
+              <li>Innovar constantemente en tecnología y metodologías de seguridad para ofrecer soluciones de vanguardia.</li>
+            </ul>
+          </section>
+
+          <!-- OBJETIVOS -->
+          <section>
+            <h2 class="font-serif text-2xl mb-4 text-protec-50">Nuestros Objetivos:</h2>
+            <ul class="list-disc pl-5 space-y-2 marker:text-protec-400">
+              <li>Reducir los riesgos de incidentes y accidentes mediante la implementación de sistemas de seguridad proactivos.</li>
+              <li>Garantizar una respuesta rápida y eficiente ante cualquier emergencia, minimizando daños y pérdidas.</li>
+              <li>Capacitar continuamente al personal para asegurar la correcta aplicación de protocolos y procedimientos.</li>
+              <li>Establecer relaciones de confianza y colaboración con clientes y proveedores.</li>
+              <li>Cumplir con todas las normativas y regulaciones legales aplicables al sector de la seguridad.</li>
+            </ul>
+          </section>
+
+        </article>
+
+        <!-- ================= CONTACT CARD ================= -->
+        <aside class="lg:col-span-4">
+          <div
+            class="
+              -mt-16
+              [&>section]:bg-transparent
+              [&>section>div]:max-w-none
+              [&>section>div]:px-0
+              [&>section>div>div]:grid-cols-1
+              [&>section>div>div]:gap-0
+            "
+          >
+            <ContactCard />
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
 </Layout>
