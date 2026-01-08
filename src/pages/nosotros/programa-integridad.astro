@@ -1,9 +1,13 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import PdfLayout from "../../layouts/LayoutPDF.astro";
+import { withBase } from "@/utils/url";
+
+const pdf = withBase("/docs/1_PROGRAMA-DE-INTEGRIDAD-SOCIEDAD-PROFESIONALES-DE-LA-SEGURIDAD-LIMITADA.pdf");
 ---
 
-<Layout>
-    <h1>en proceso...</h1>
-    <h1>nosotros</h1>
-    <p>programa integridad</p>
-</Layout>
+<PdfLayout
+  pageTitle="Programa de Integridad - PROTEC · CHILE"
+  desc="Programa de Integridad PROTEC Chile"
+  title="Programa de Integridad"
+  pdfUrl={pdf}
+/>

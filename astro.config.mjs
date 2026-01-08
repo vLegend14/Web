@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://vlegend14.github.io",
-  base: "/Web/",
+  base: "/",
   trailingSlash: "always",
   vite: { plugins: [tailwindcss()] },
 });

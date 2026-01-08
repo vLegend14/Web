@@ -1,5 +1,29 @@
 ---
 import { withBase } from "@/utils/url";
+
+const slides = [
+  {
+    title: "GUARDIAS DE SEGURIDAD",
+    subtitle: "PERSONAL CAPACITADO.",
+    img: withBase("/img/GGSS-slides.jpg"),
+    alt: "Guardias de Seguridad",
+    href: withBase("/guardias-de-seguridad/"),
+  },
+  {
+    title: "ALARMAS",
+    subtitle: "CONECTADOS A CARABINEROS DE CHILE – ALPHA III",
+    img: withBase("/img/alarmas-slides.jpg"),
+    alt: "Alarmas",
+    href: withBase("/vigilancia-electronica/sistema-de-alarma/"),
+  },
+  {
+    title: "VIDEO VIGILANCIA",
+    subtitle: "SISTEMAS DE CÁMARAS DE SEGURIDAD.",
+    img: withBase("/img/CCTV-slides.jpg"),
+    alt: "Video Vigilancia",
+    href: withBase("/vigilancia-electronica/camaras-de-seguridad/"),
+  },
+];
 ---
 
 <!-- ================= CARRUSEL ================= -->
@@ -12,70 +36,39 @@ import { withBase } from "@/utils/url";
     id="carousel"
     class="flex transition-transform duration-700 ease-in-out will-change-transform"
   >
-    <!-- SLIDE 1 -->
-    <div class="min-w-full relative">
-      <img
-        src={withBase("/img/alarmas-slides.jpg")}
-        alt="Alarmas"
-        class="w-full h-[60vh] md:h-[520px] lg:h-[620px] object-cover"
-        draggable="false"
-        loading="eager"
-      />
+    {slides.map((s, idx) => (
+      <div class="min-w-full relative" data-slide={idx}>
+        <img
+          src={s.img}
+          alt={s.alt}
+          class="w-full h-[60vh] md:h-[520px] lg:h-[520px]"
+          draggable="false"
+          loading="eager"
+        />
 
-      <div class="absolute inset-0 bg-protec-950/55"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-protec-950/60 via-protec-900/25 to-transparent"></div>
+        <div class="absolute inset-0 bg-protec-950/55"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-protec-950/60 via-protec-900/25 to-transparent"></div>
 
-      <div class="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-6">
-        <h1 class="text-2xl md:text-4xl lg:text-5xl font-semibold tracking-wide uppercase">
-          ALARMAS
-        </h1>
-        <p class="mt-3 max-w-2xl text-sm md:text-lg text-protec-100">
-          CONECTADOS A CARABINEROS DE CHILE – ALPHA III
-        </p>
+        <div class="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-6">
+          <h2 class="text-2xl md:text-4xl lg:text-5xl font-semibold tracking-wide uppercase">
+            {s.title}
+          </h2>
 
-        <a
-          href={withBase("/vigilancia-electronica/sistema-de-alarma/")}
-          class="mt-8 inline-flex items-center justify-center rounded-xl
-                 bg-protec-600 hover:bg-protec-500 active:bg-protec-700 transition-colors
-                 px-8 py-3 text-sm font-semibold text-white shadow-lg ring-1 ring-white/10"
-        >
-          Ver servicio
-        </a>
+          <p class="mt-3 max-w-2xl text-sm md:text-lg text-protec-100">
+            {s.subtitle}
+          </p>
+
+          <a
+            href={s.href}
+            class="mt-8 inline-flex items-center justify-center rounded-xl
+                   bg-protec-600 hover:bg-protec-500 active:bg-protec-700 transition-colors
+                   px-8 py-3 text-sm font-semibold text-white shadow-lg ring-1 ring-white/10"
+          >
+            Ver servicio
+          </a>
+        </div>
       </div>
-    </div>
-
-    <!-- SLIDE 2 -->
-    <div class="min-w-full relative">
-      <img
-        src={withBase("/img/CCTV-slides.jpg")}
-        alt="Video Vigilancia"
-        class="w-full h-[60vh] md:h-[520px] lg:h-[620px] object-cover"
-        draggable="false"
-        loading="eager"
-      />
-
-      <!-- Overlay -->
-      <div class="absolute inset-0 bg-protec-950/55"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-protec-950/60 via-protec-900/25 to-transparent"></div>
-
-      <div class="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-6">
-        <h2 class="text-2xl md:text-4xl lg:text-5xl font-semibold tracking-wide uppercase">
-          VIDEO VIGILANCIA
-        </h2>
-        <p class="mt-3 max-w-2xl text-sm md:text-lg text-protec-100">
-          SISTEMAS DE CÁMARAS DE SEGURIDAD.
-        </p>
-
-        <a
-          href={withBase("/vigilancia-electronica/camaras-de-seguridad/")}
-          class="mt-8 inline-flex items-center justify-center rounded-xl
-                 bg-protec-600 hover:bg-protec-500 active:bg-protec-700 transition-colors
-                 px-8 py-3 text-sm font-semibold text-white shadow-lg ring-1 ring-white/10"
-        >
-          Ver servicio
-        </a>
-      </div>
-    </div>
+    ))}
   </div>
 
   <!-- BOTONES -->
@@ -166,7 +159,6 @@ import { withBase } from "@/utils/url";
 
     if (animate) {
       isAnimating = true;
-
       if (animFallback) clearTimeout(animFallback);
       animFallback = setTimeout(() => {
         isAnimating = false;
@@ -213,32 +205,19 @@ import { withBase } from "@/utils/url";
       animFallback = null;
     }
 
-    if (index === n + 1) {
-      requestAnimationFrame(() => translateToIndex(1, false));
-    } else if (index === 0) {
-      requestAnimationFrame(() => translateToIndex(n, false));
-    }
+    if (index === n + 1) requestAnimationFrame(() => translateToIndex(1, false));
+    else if (index === 0) requestAnimationFrame(() => translateToIndex(n, false));
   });
 
-  prevBtn?.addEventListener("click", () => {
-    stopAuto();
-    prev();
-    startAuto();
-  });
+  prevBtn?.addEventListener("click", () => { stopAuto(); prev(); startAuto(); });
+  nextBtn?.addEventListener("click", () => { stopAuto(); next(); startAuto(); });
 
-  nextBtn?.addEventListener("click", () => {
-    stopAuto();
-    next();
-    startAuto();
-  });
-
-  // Pointer events
+  // Pointer events (swipe)
   const onDown = (e) => {
     if (isAnimating) return;
     if (e.pointerType === "mouse" && e.button !== 0) return;
 
     normalizeIfClone();
-
     isDragging = true;
     stopAuto();
     setTransition(false);
@@ -265,15 +244,9 @@ import { withBase } from "@/utils/url";
     const w = widthNow();
     const threshold = w * 0.2;
 
-    if (dx <= -threshold) {
-      normalizeIfClone();
-      translateToIndex(index + 1, true);
-    } else if (dx >= threshold) {
-      normalizeIfClone();
-      translateToIndex(index - 1, true);
-    } else {
-      translateToIndex(index, true);
-    }
+    if (dx <= -threshold) translateToIndex(index + 1, true);
+    else if (dx >= threshold) translateToIndex(index - 1, true);
+    else translateToIndex(index, true);
 
     startAuto();
   };
@@ -290,7 +263,6 @@ import { withBase } from "@/utils/url";
   // Init
   translateToIndex(1, false);
   startAuto();
-
   window.addEventListener("resize", () => translateToIndex(index, false));
 })();
 </script>

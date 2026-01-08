@@ -1,6 +1,7 @@
 ---
 import { withBase } from "@/utils/url";
 ---
+
 <section
   id="servicios"
   class="w-full bg-protec-900 text-protec-50 py-20"
@@ -23,53 +24,37 @@ import { withBase } from "@/utils/url";
           title: "Guardias de Seguridad",
           icon: "🛡️",
           desc: "Personal capacitado y protocolos.",
-          path: withBase("/guardias/guardias-de-seguridad/"),
-          featured: false
+          path: withBase("/guardias-de-seguridad/"),
         },
         {
           title: "Vigilancia Electrónica y CCTV",
           icon: "📹",
           desc: "Cámaras, control y evidencia.",
           path: withBase("/vigilancia-electronica/camaras-de-seguridad/"),
-          featured: false
         },
         {
           title: "Alarmas Monitoreadas 24/7",
           icon: "🚨",
           desc: "Respuesta inmediata y monitoreo.",
           path: withBase("/vigilancia-electronica/sistema-de-alarma/"),
-          featured: false
         },
         {
           title: "Outsourcing de Seguridad",
           icon: "🏢",
           desc: "Servicios a medida para empresas.",
-          path: withBase("/outsourcing/outsourcing/"),
-          featured: false
+          path: withBase("/outsourcing/"),
         },
       ].map(service => (
         <div
-          class:list={[
-            "relative rounded-2xl p-8",
-            "bg-protec-800/60 ring-1 ring-protec-600/30",
-            "shadow-[0_20px_60px_-30px_rgba(0,0,0,0.8)]",
-            "transition hover:bg-protec-800/80",
-            service.featured
-              ? "md:-translate-y-2 bg-protec-700/80 ring-protec-500/50"
-              : ""
-          ]}
+          class="
+            flex flex-col h-full
+            rounded-2xl p-8
+            bg-protec-800/60 ring-1 ring-protec-600/30
+            shadow-[0_20px_60px_-30px_rgba(0,0,0,0.8)]
+            transition hover:bg-protec-800/80
+          "
         >
-          <!-- BADGE DESTACADO -->
-          {service.featured && (
-            <div
-              class="absolute -top-3 left-6 text-xs px-3 py-1 rounded-full
-                     bg-protec-500 text-white font-semibold shadow"
-            >
-              Recomendado
-            </div>
-          )}
-
-          <!-- HEADER CARD -->
+          <!-- HEADER -->
           <div class="flex items-center justify-between">
             <h3 class="text-lg font-semibold text-white">
               {service.title}
@@ -85,7 +70,7 @@ import { withBase } from "@/utils/url";
           </p>
 
           <!-- FEATURES -->
-          <ul class="mt-6 space-y-3 text-sm text-protec-100">
+          <ul class="mt-4 space-y-2 text-sm text-protec-100">
             <li class="flex items-center gap-2">
               <span class="text-protec-400 font-bold">✓</span>
               Implementación profesional
@@ -100,13 +85,16 @@ import { withBase } from "@/utils/url";
             </li>
           </ul>
 
-          <!-- CTA -->
+          <!-- CTA (empujado abajo) -->
           <a
             href={service.path}
-            class="mt-8 inline-flex w-full items-center justify-center
-                   rounded-xl py-3 text-sm font-semibold
-                   bg-protec-600 hover:bg-protec-500 active:bg-protec-700
-                   text-white transition-colors"
+            class="
+              mt-auto
+              inline-flex w-full items-center justify-center
+              rounded-xl py-3 text-sm font-semibold
+              bg-protec-600 hover:bg-protec-500 active:bg-protec-700
+              text-white transition-colors
+            "
           >
             Ver servicio
           </a>

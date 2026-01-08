@@ -1,0 +1,208 @@
+---
+import { withBase } from "@/utils/url";
+
+const phoneDisplay = "600 620 9 620";
+const phoneHref = "tel:6006209620";
+const email = "contacto@protec.cl";
+
+const heroImg = withBase("/img/alarmas-slides.jpg");
+---
+
+<section class="w-full bg-protec-900 text-protec-50">
+  <!-- HERO -->
+  <div class="relative w-full overflow-hidden pt-15">
+
+    <img
+      src={heroImg}
+      alt="Sistema de Alarmas PROTEC CHILE"
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="lazy"
+      decoding="async"
+    />
+    <div class="absolute inset-0 bg-protec-950/70"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-protec-900/20 via-protec-900/20 to-protec-950/80"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 py-16 md:py-20">
+      <p class="text-[11px] tracking-[0.28em] uppercase text-protec-100/80">
+        Vigilancia electrónica
+      </p>
+
+      <h2 class="mt-4 text-3xl md:text-5xl font-serif tracking-[0.12em] uppercase text-white">
+        Sistema de Alarmas
+      </h2>
+
+      <p class="mt-5 max-w-3xl text-protec-100 leading-relaxed">
+        Sistemas de alarmas y CCTV monitoreados 24/7, conectados a nuestra central de monitoreo
+        y coordinados con Carabineros de Chile cuando corresponde.
+      </p>
+
+      <div class="mt-8 flex flex-col sm:flex-row gap-3">
+        <a
+          href={phoneHref}
+          class="inline-flex items-center justify-center rounded-xl px-6 py-3
+                 bg-protec-700 text-white text-sm font-semibold tracking-wide
+                 hover:bg-protec-600 active:bg-protec-800 transition
+                 ring-1 ring-white/10 shadow-lg"
+        >
+          Llamar {phoneDisplay}
+        </a>
+
+        <a
+          href={withBase("/contacto/")}
+          class="inline-flex items-center justify-center rounded-xl px-6 py-3
+                 bg-protec-100/90 text-protec-900 text-sm font-semibold tracking-wide
+                 hover:bg-protec-100 transition
+                 ring-1 ring-protec-200 shadow-lg"
+        >
+          Solicitar información
+        </a>
+      </div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 w-full h-1 bg-protec-700"></div>
+  </div>
+
+  <!-- CONTENIDO -->
+  <div class="max-w-7xl mx-auto px-6 py-14">
+    <div class="grid gap-8 lg:grid-cols-12 items-start">
+      <!-- Col izquierda -->
+      <div class="lg:col-span-8 space-y-8">
+        <div class="rounded-2xl bg-protec-950/35 backdrop-blur ring-1 ring-white/10 p-6 md:p-8
+                    shadow-[0_20px_60px_-35px_rgba(0,0,0,0.85)]">
+          <h3 class="text-xl md:text-2xl font-serif text-white">
+            Monitoreo permanente de alarmas y CCTV
+          </h3>
+
+          <p class="mt-4 text-protec-100 leading-relaxed">
+            El Servicio de Monitoreo de PROTEC controla los sistemas de alarmas y CCTV
+            instalados en las dependencias del cliente, conectados directamente
+            a nuestra plataforma de monitoreo.
+          </p>
+
+          <p class="mt-4 text-protec-100 leading-relaxed">
+            Se instala un kit de alarmas que incluye una central de alarmas
+            y distintos elementos de activación, conectados a la casa matriz de PROTEC CHILE.
+          </p>
+
+          <p class="mt-4 text-protec-100 leading-relaxed">
+            El servicio funciona las 24 horas del día, los 365 días del año,
+            con operadores especializados que actúan según protocolos de emergencia.
+          </p>
+
+          <div class="mt-7 grid gap-4 sm:grid-cols-2">
+            {[
+              "Central de alarmas monitoreada 24/7",
+              "Integración con sistemas CCTV",
+              "Plataforma de monitoreo PROTEC",
+              "Sistemas DVR y NVR",
+              "Resguardo de evidencia para fiscalía",
+              "Instalación profesional",
+              "Conexión vía Internet",
+              "Protocolos de emergencia",
+            ].map((item) => (
+              <div class="flex items-start gap-2 text-sm text-protec-100">
+                <span class="mt-0.5 text-protec-400 font-bold">✓</span>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="rounded-2xl bg-protec-950/35 backdrop-blur ring-1 ring-white/10 p-6 md:p-8">
+          <h3 class="text-xl md:text-2xl font-serif text-white">
+            Canales de protección del sistema
+          </h3>
+
+          <ul class="mt-4 space-y-4 text-protec-100 leading-relaxed">
+            <li>
+              <strong class="text-white">Intrusión (robo o asalto):</strong>
+              Activación inmediata de la alarma y aviso a la Central de Monitoreo,
+              con notificación a Carabineros de Chile.
+            </li>
+
+            <li>
+              <strong class="text-white">Botón de pánico:</strong>
+              Aviso directo a la Central ante la presencia real de un intruso,
+              con coordinación policial y envío de móvil si el servicio lo contempla.
+            </li>
+
+            <li>
+              <strong class="text-white">Emergencia por fuego:</strong>
+              Activación del botón de incendio para asistencia inmediata
+              por personal especializado.
+            </li>
+
+            <li>
+              <strong class="text-white">Emergencia médica:</strong>
+              Enlace inmediato con servicios de ambulancia y aviso a los contactos
+              indicados por el cliente.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Col derecha -->
+      <aside class="lg:col-span-4">
+        <div class="rounded-2xl bg-protec-950/35 backdrop-blur ring-1 ring-white/10 p-6
+                    shadow-[0_20px_60px_-35px_rgba(0,0,0,0.85)]
+                    lg:sticky lg:top-24">
+          <h3 class="text-[11px] font-extrabold tracking-[0.22em] uppercase text-protec-100/80">
+            Datos de contacto
+          </h3>
+
+          <div class="mt-4 space-y-3 text-sm">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5">☎️</span>
+              <div>
+                <div class="font-semibold text-white">Fono contacto</div>
+                <a
+                  href={phoneHref}
+                  class="text-protec-100 hover:text-white underline-offset-4 hover:underline decoration-white/20 hover:decoration-white/60 transition"
+                >
+                  {phoneDisplay}
+                </a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5">✉️</span>
+              <div>
+                <a
+                  href={`mailto:${email}`}
+                  class="text-protec-100 hover:text-white underline-offset-4 hover:underline decoration-white/20 hover:decoration-white/60 transition"
+                >
+                  {email}
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 h-px bg-white/10"></div>
+
+          <p class="mt-5 text-sm text-protec-100/90">
+            Solicite más información llamando a nuestro
+            <span class="font-semibold text-white"> Número Único Nacional</span>.
+          </p>
+
+          <a
+            href={phoneHref}
+            class="mt-4 inline-flex w-full items-center justify-center rounded-xl
+                   bg-protec-600 hover:bg-protec-500 active:bg-protec-700 transition-colors
+                   py-3 text-sm font-semibold text-white"
+          >
+            Llamar {phoneDisplay}
+          </a>
+
+          <a
+            href={withBase("/contacto/")}
+            class="mt-3 inline-flex w-full items-center justify-center rounded-xl
+                   bg-protec-100/90 text-protec-900 hover:bg-protec-100 transition
+                   py-3 text-sm font-semibold"
+          >
+            Ir a formulario
+          </a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

@@ -1,106 +1,13 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import PdfLayout from "../../layouts/LayoutPDF.astro";
 import { withBase } from "@/utils/url";
-import ContactCard from "../../components/contactCard.astro";
 
-const pdfUrl = withBase("/docs/00-RIOHS-2025-V-REV.11-PROTEC.pdf");
+const url = withBase("/docs/00-RIOHS-2025-V-REV.11-PROTEC.pdf");
 ---
 
-<Layout
-  title="Reglamento Interno - PROTEC Chile"
+<PdfLayout
+  pageTitle="Reglamento Interno - PROTEC · CHILE"
   desc="Reglamento Interno de Orden y Seguridad PROTEC Chile"
->
-  <section class="w-full bg-protec-900 text-protec-50">
-    <div class="max-w-7xl mx-auto px-12 pt-10 pb-14">
-
-      <!-- TÍTULO -->
-      <header class="mb-10">
-        <h1 class="text-3xl md:text-4xl font-serif text-protec-100">
-          Reglamento Interno
-        </h1>
-        <div class="mt-4 h-px w-full bg-white/10"></div>
-      </header>
-
-      <!-- GRID -->
-      <div class="grid gap-8 lg:grid-cols-12 items-start">
-
-        <!-- ================= PDF ================= -->
-        <div class="lg:col-span-8">
-          <div
-            class="rounded-2xl overflow-hidden
-                   bg-protec-950/35 backdrop-blur
-                   ring-1 ring-white/10
-                   shadow-[0_30px_90px_-45px_rgba(0,0,0,0.9)]"
-          >
-            <!-- TOOLBAR -->
-            <div
-              class="flex flex-col sm:flex-row sm:items-center sm:justify-between
-                     gap-3 px-5 py-4
-                     bg-protec-900/70 border-b border-white/10"
-            >
-              <p class="text-sm tracking-wide text-protec-100">
-                Documento PDF
-              </p>
-
-              <div class="flex items-center gap-2">
-                <a
-                  href={pdfUrl}
-                  target="_blank"
-                  rel="noopener"
-                  class="inline-flex items-center justify-center
-                         rounded-md px-4 py-2
-                         text-xs font-semibold tracking-wide
-                         bg-protec-700 text-white
-                         hover:bg-protec-600 active:bg-protec-800
-                         ring-1 ring-white/10
-                         transition"
-                >
-                  Abrir en nueva pestaña
-                </a>
-
-                <a
-                  href={pdfUrl}
-                  download
-                  class="inline-flex items-center justify-center
-                         rounded-md px-4 py-2
-                         text-xs font-semibold tracking-wide
-                         bg-protec-100/90 text-protec-900
-                         hover:bg-protec-100
-                         ring-1 ring-protec-200/60
-                         transition"
-                >
-                  Descargar
-                </a>
-              </div>
-            </div>
-
-            <!-- PDF -->
-            <iframe
-              src={`${pdfUrl}#view=FitH`}
-              class="w-full bg-white h-[88vh] min-h-[760px]"
-              loading="lazy"
-              title="Reglamento Interno PROTEC Chile"
-            ></iframe>
-          </div>
-        </div>
-
-        <!-- ================= CONTACT CARD ================= -->
-        <div class="lg:col-span-4">
-          <div
-            class="
-              -mt-16
-              [&>section]:bg-transparent
-              [&>section>div]:max-w-none
-              [&>section>div]:px-0
-              [&>section>div>div]:grid-cols-1
-              [&>section>div>div]:gap-0
-            "
-          >
-            <ContactCard />
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-</Layout>
+  title="Reglamento Interno"
+  pdfUrl={url}
+/>

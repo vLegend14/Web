@@ -1,9 +1,13 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import PdfLayout from "../../layouts/LayoutPDF.astro";
+import { withBase } from "@/utils/url";
+
+const pdf = withBase("/docs/sept17-2025-8.2-Politica-de-Calidad.pdf");
 ---
 
-<Layout>
-    <h1>en proceso...</h1>
-    <h1>nosotros</h1>
-    <p>politica, calidad, eficiencia energetica</p>
-</Layout>
+<PdfLayout
+  pageTitle="POLITICA DE CALIDAD Y COMPROMISO AMBIENTAL – PROTEC · CHILE"
+  desc="Politica de Calidad y Compromiso Ambiental PROTEC Chile"
+  title="Politica de Calidad y Compromiso Ambiental"
+  pdfUrl={pdf}
+/>

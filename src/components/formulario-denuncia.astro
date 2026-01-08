@@ -1,0 +1,217 @@
+<section id="denuncias-ley-karin" class="w-full bg-protec-900 text-protec-50">
+  <div class="max-w-7xl mx-auto px-6 py-16 md:py-20">
+
+    <!-- CARD CONTENEDORA -->
+    <div
+      id="denuncia-card"
+      class="max-w-3xl mx-auto
+             rounded-3xl
+             bg-protec-950/40 backdrop-blur
+             ring-1 ring-white/10
+             shadow-[0_40px_90px_-40px_rgba(0,0,0,0.9)]
+             px-6 py-8 md:px-8 md:py-10
+             -translate-y-8 md:-translate-y-12"
+    >
+      <!-- WRAPPER ANIMADO -->
+      <div data-animate>
+        <!-- TÍTULO -->
+        <h2
+          class="text-2xl md:text-3xl font-serif tracking-wide text-center text-white mb-4"
+          data-stagger
+        >
+          Formulario de denuncias
+        </h2>
+
+        <p class="text-center text-protec-100 mb-8" data-stagger>
+          Ley Karin · Relate su denuncia. Los campos con <span class="text-protec-200 font-semibold">*</span> son obligatorios.
+        </p>
+
+        <form class="grid gap-6">
+          <!-- NOMBRE / APELLIDOS -->
+          <div class="grid gap-6 md:grid-cols-2" data-stagger>
+            <label class="relative block">
+              <span class="absolute -top-2.5 left-3 px-2 text-xs bg-protec-950 text-protec-100 tracking-wide">
+                Nombre <span class="text-protec-200">*</span>
+              </span>
+              <input
+                type="text"
+                name="nombre"
+                autocomplete="given-name"
+                required
+                class="w-full h-11 md:h-12 rounded-md
+                       bg-protec-900/80 text-white
+                       border border-protec-600/60
+                       px-4 outline-none
+                       focus:border-protec-400
+                       focus:ring-2 focus:ring-protec-400/30
+                       transition"
+              />
+            </label>
+
+            <label class="relative block">
+              <span class="absolute -top-2.5 left-3 px-2 text-xs bg-protec-950 text-protec-100 tracking-wide">
+                Apellidos <span class="text-protec-200">*</span>
+              </span>
+              <input
+                type="text"
+                name="apellidos"
+                autocomplete="family-name"
+                required
+                class="w-full h-11 md:h-12 rounded-md
+                       bg-protec-900/80 text-white
+                       border border-protec-600/60
+                       px-4 outline-none
+                       focus:border-protec-400
+                       focus:ring-2 focus:ring-protec-400/30
+                       transition"
+              />
+            </label>
+          </div>
+
+          <!-- TELÉFONO -->
+          <label class="relative block" data-stagger>
+            <span class="absolute -top-2.5 left-3 px-2 text-xs bg-protec-950 text-protec-100 tracking-wide">
+              Teléfono <span class="text-protec-200">*</span>
+            </span>
+            <input
+              type="tel"
+              name="telefono"
+              autocomplete="tel"
+              required
+              class="w-full h-11 md:h-12 rounded-md
+                     bg-protec-900/80 text-white
+                     border border-protec-600/60
+                     px-4 outline-none
+                     focus:border-protec-400
+                     focus:ring-2 focus:ring-protec-400/30
+                     transition"
+            />
+          </label>
+
+          <!-- CORREO -->
+          <label class="relative block" data-stagger>
+            <span class="absolute -top-2.5 left-3 px-2 text-xs bg-protec-950 text-protec-100 tracking-wide">
+              Correo electrónico <span class="text-protec-200">*</span>
+            </span>
+            <input
+              type="email"
+              name="email"
+              autocomplete="email"
+              required
+              class="w-full h-11 md:h-12 rounded-md
+                     bg-protec-900/80 text-white
+                     border border-protec-600/60
+                     px-4 outline-none
+                     focus:border-protec-400
+                     focus:ring-2 focus:ring-protec-400/30
+                     transition"
+            />
+          </label>
+
+          <!-- MENSAJE -->
+          <label class="relative block" data-stagger>
+            <span class="absolute -top-2.5 left-3 px-2 text-xs bg-protec-950 text-protec-100 tracking-wide">
+              Mensaje · Relate su denuncia <span class="text-protec-200">*</span>
+            </span>
+            <textarea
+              rows="8"
+              name="mensaje"
+              required
+              class="w-full rounded-md
+                     bg-protec-900/80 text-white
+                     border border-protec-600/60
+                     px-4 py-3 outline-none resize-none
+                     focus:border-protec-400
+                     focus:ring-2 focus:ring-protec-400/30
+                     transition"
+            ></textarea>
+          </label>
+
+          <!-- BOTÓN -->
+          <button
+            type="submit"
+            class="mt-2 inline-flex items-center justify-center
+                   rounded-lg px-8 py-3
+                   bg-protec-700 text-white font-semibold tracking-wide
+                   hover:bg-protec-600 active:bg-protec-800
+                   ring-1 ring-white/10 shadow-lg
+                   transition"
+            data-stagger
+          >
+            Enviar denuncia
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Estado inicial (solo si hay motion) */
+  @media (prefers-reduced-motion: no-preference) {
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(14px);
+      transition:
+        opacity 520ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        transform 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      will-change: opacity, transform;
+    }
+
+    [data-animate].is-inview {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Cada item stagger entra suave */
+    [data-stagger] {
+      opacity: 0;
+      transform: translateY(10px);
+      transition:
+        opacity 520ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        transform 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      will-change: opacity, transform;
+    }
+
+    [data-animate].is-inview [data-stagger] {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Reduced motion: sin animación, todo visible */
+  @media (prefers-reduced-motion: reduce) {
+    [data-animate], [data-stagger] {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    const card = document.getElementById("denuncia-card");
+    if (!card) return;
+
+    const wrap = card.querySelector("[data-animate]");
+    if (!wrap) return;
+
+    const items = Array.from(card.querySelectorAll("[data-stagger]"));
+
+    items.forEach((el, i) => {
+      el.style.transitionDelay = `${90 + i * 55}ms`;
+    });
+
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        wrap.classList.add("is-inview");
+        obs.disconnect();
+      },
+      { threshold: 0.25 }
+    );
+
+    obs.observe(card);
+  })();
+</script>
